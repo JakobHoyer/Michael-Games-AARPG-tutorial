@@ -58,7 +58,6 @@ offset_top = 192.0
 offset_right = 328.0
 offset_bottom = 215.0
 theme_override_font_sizes/font_size = 10
-text = "Items items items"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -99,3 +98,6 @@ layout_mode = 2
 
 [node name="InventorySlot8" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
 layout_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 4

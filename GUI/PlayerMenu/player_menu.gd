@@ -5,6 +5,7 @@ signal hidden
 
 var is_paused : bool = false
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var item_description: Label = $Control/ItemDescription
 
 
@@ -45,3 +46,7 @@ func hide_player_menu() -> void:
 func update_item_description(new_text : String) -> void:
 	item_description.text = new_text
 	pass
+
+func play_audio(audio : AudioStream) -> void:
+	audio_stream_player_2d.stream = audio
+	audio_stream_player_2d.play()
