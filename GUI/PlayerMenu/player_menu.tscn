@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://dykbmc6i1dbfe"]
+
+[ext_resource type="Script" uid="uid://bbkl7e32nu8r5" path="res://GUI/PlayerMenu/player_menu.gd" id="1_nheqm"]
+[ext_resource type="Texture2D" uid="uid://c1f2pa6m1x2im" path="res://Items/Sprites/items.png" id="2_ostqa"]
+[ext_resource type="Script" uid="uid://bkvqbm1be6027" path="res://GUI/PlayerMenu/Inventory/Scripts/inventory_ui.gd" id="3_0px3k"]
+[ext_resource type="PackedScene" uid="uid://gtcb2er5qudg" path="res://GUI/PlayerMenu/Inventory/inventory_slot.tscn" id="3_22eb0"]
+[ext_resource type="Resource" uid="uid://cklvq5iuiakqs" path="res://GUI/PlayerMenu/Inventory/player_inventory.tres" id="4_dxnqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ostqa"]
+atlas = ExtResource("2_ostqa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22eb0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_ostqa")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="PlayerMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_nheqm")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215686, 0.215686, 0.215686, 0.392157)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 65.0
+offset_right = 282.0
+offset_bottom = 88.0
+text = "Player Menu"
+horizontal_alignment = 1
+
+[node name="ItemDescription" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 192.0
+offset_right = 328.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 10
+text = "Items items items"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 104.0
+offset_right = 332.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_22eb0")
+
+[node name="InventoryUI" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("3_0px3k")
+data = ExtResource("4_dxnqh")
+
+[node name="InventorySlot" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="Control/PanelContainer/InventoryUI" instance=ExtResource("3_22eb0")]
+layout_mode = 2
