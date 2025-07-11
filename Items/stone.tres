@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://b4li7ox8es8x8"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://b4li7ox8es8x8"]
 
+[ext_resource type="Script" uid="uid://bxxbcb6dcew4a" path="res://Items/ItemEffect/item_effect.gd" id="1_gqhqt"]
 [ext_resource type="Script" uid="uid://8cobh5cjns5e" path="res://Items/Scripts/item_data.gd" id="1_mndqm"]
 [ext_resource type="Texture2D" uid="uid://c1f2pa6m1x2im" path="res://Items/Sprites/items.png" id="2_6sq6v"]
 
@@ -12,4 +13,5 @@ script = ExtResource("1_mndqm")
 name = "Stone"
 description = "A simple stone. Good for crafting and hurlig at annoying birds."
 texture = SubResource("AtlasTexture_gqhqt")
+effects = Array[ExtResource("1_gqhqt")]([])
 metadata/_custom_type_script = "uid://8cobh5cjns5e"
