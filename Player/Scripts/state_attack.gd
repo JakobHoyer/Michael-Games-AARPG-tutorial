@@ -26,7 +26,8 @@ func enter() -> void:
 	attacking = true
 	
 	await get_tree().create_timer(0.075).timeout # nicer sword swing timing
-	hurt_box.monitoring = true # allow hurtbox to do "damage"
+	if attacking:
+		hurt_box.monitoring = true # allow hurtbox to do "damage"
 	pass
 
 

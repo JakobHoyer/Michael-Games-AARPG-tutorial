@@ -16,7 +16,6 @@ var _animation_finished : bool = false
 ## What happens when we initialize this state?
 func init() -> void:
 	enemy.enemy_damaged.connect(_on_enemy_damaged)
-	pass
 
 
 ## What happens when the enemy enters this state?
@@ -28,14 +27,12 @@ func enter() -> void:
 	enemy.velocity = _direction * -knockback_speed
 	enemy.update_animation(animation_name)
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
-	pass
 
 
 ## What happens when the enemy exits this state?
 func exit() -> void:
 	enemy.invulnerable = false
 	enemy.animation_player.animation_finished.disconnect(_on_animation_finished)
-	pass
 
 
 ## What happens during the _process update in this state?
@@ -54,9 +51,7 @@ func physics(_delta: float) -> EnemyState:
 func _on_enemy_damaged(hurt_box : HurtBox) -> void:
 	_damage_position = hurt_box.global_position
 	state_machine.change_state(self)
-	pass
 
 
 func _on_animation_finished(_a : String) -> void:
 	_animation_finished = true
-	pass

@@ -25,11 +25,12 @@ func enter() -> void:
 	enemy.velocity = _direction * wander_speed
 	enemy.set_direction(_direction)
 	enemy.update_animation(animation_name)
-	pass
+
 
 ## What happens when the enemy exits this state?
 func exit() -> void:
 	pass
+
 
 ## What happens during the _process update in this state?
 func process(_delta: float) -> EnemyState:
@@ -37,6 +38,7 @@ func process(_delta: float) -> EnemyState:
 	if _timer <= 0:
 		return next_state
 	return null
+
 
 ## What happens during the _physics_process update in this state?
 func physics(_delta: float) -> EnemyState:

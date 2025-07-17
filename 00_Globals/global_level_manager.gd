@@ -12,13 +12,11 @@ var position_offset : Vector2
 func _ready() -> void:
 	await get_tree().process_frame # wait until everything is loaded
 	level_loaded.emit() # tell the first level has loaded
-	pass
 
 
 func change_tilemap_bounds(bounds : Array[Vector2]) -> void:
 	current_tilemap_bounds = bounds
 	tilemap_bounds_changed.emit(bounds)
-	pass
 
 
 func load_new_level(level_path : String, _target_transition : String, _position_offset : Vector2) -> void:
@@ -39,5 +37,3 @@ func load_new_level(level_path : String, _target_transition : String, _position_
 
 	await get_tree().process_frame
 	level_loaded.emit()
-	
-	pass

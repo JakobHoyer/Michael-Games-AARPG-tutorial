@@ -22,14 +22,15 @@ func _ready() -> void:
 	state_machine.initialize(self)
 	player = PlayerManager.player # this assumes that the player is spawned before enemies.
 	hit_box.damaged.connect(_take_damage)
-	pass
+
 
 func _process(_delta: float) -> void:
 	pass
 
+
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	pass
+
 
 func set_direction(_new_direction) -> bool:
 	direction = _new_direction
@@ -50,7 +51,6 @@ func set_direction(_new_direction) -> bool:
 
 func update_animation(state : String) -> void:
 	animation_player.play(state + "_" + animation_direction())
-	pass
 
 
 func animation_direction() -> String:
@@ -61,6 +61,7 @@ func animation_direction() -> String:
 	else:
 		return "side"
 
+
 func _take_damage(hurt_box : HurtBox) -> void:
 	if invulnerable == true:
 		return
@@ -69,4 +70,3 @@ func _take_damage(hurt_box : HurtBox) -> void:
 		enemy_damaged.emit(hurt_box)
 	else:
 		enemy_destroyed.emit(hurt_box)
-	pass

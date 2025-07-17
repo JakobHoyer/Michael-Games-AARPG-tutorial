@@ -7,15 +7,14 @@ var current_state : EnemyState
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
-	pass
+
 
 func _process(delta: float) -> void:
 	change_state(current_state.process(delta))
-	pass
+
 
 func _physics_process(delta: float) -> void:
 	change_state(current_state.physics(delta))
-	pass
 
 
 ## Retrieve states and make sure the specific enemy is initialized
@@ -34,7 +33,6 @@ func initialize(_enemy : Enemy) -> void:
 	if states.size() > 0:
 		change_state(states[0])
 		process_mode = Node.PROCESS_MODE_INHERIT
-	pass
 
 
 func change_state(new_state : EnemyState) -> void:
@@ -49,4 +47,3 @@ func change_state(new_state : EnemyState) -> void:
 	previous_state = current_state
 	current_state = new_state
 	current_state.enter()
-	pass
