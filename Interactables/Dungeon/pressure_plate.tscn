@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct14887i7ev8k"]
+
+[ext_resource type="Script" uid="uid://x7c6gt5gyl4h" path="res://Interactables/Dungeon/Scripts/pressure_plate.gd" id="1_issrc"]
+[ext_resource type="AudioStream" uid="uid://bvug2seijfa1u" path="res://Interactables/Dungeon/lever-01.wav" id="2_1qp12"]
+[ext_resource type="Texture2D" uid="uid://bl8kb1jwqaash" path="res://Interactables/Dungeon/dungeon_props.png" id="2_11wwe"]
+[ext_resource type="AudioStream" uid="uid://lfd1e4i1uxgw" path="res://Interactables/Dungeon/lever-02.wav" id="3_xkoyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11wwe"]
+size = Vector2(8, 8)
+
+[node name="PressurePlate" type="Node2D"]
+script = ExtResource("1_issrc")
+audio_activate = ExtResource("2_1qp12")
+audio_deactivate = ExtResource("3_xkoyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_11wwe")
+region_enabled = true
+region_rect = Rect2(416, 64, 32, 32)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 273
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_11wwe")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
