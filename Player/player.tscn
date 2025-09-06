@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://tqyunck8rafn"]
+[gd_scene load_steps=46 format=3 uid="uid://tqyunck8rafn"]
 
 [ext_resource type="Script" uid="uid://c3keoicwf14a7" path="res://Player/Scripts/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://be1fr10wfx6nb" path="res://Player/Sprites/PlayerSprite02.png" id="2_k53q1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cp7m1ksimmjr6" path="res://Player/Scripts/PlayerCameraScript.gd" id="11_5htga"]
 [ext_resource type="Script" uid="uid://dt8ixdbyia4l4" path="res://Player/Scripts/state_stun.gd" id="11_dkpta"]
 [ext_resource type="PackedScene" uid="uid://bdh2uivifqi3s" path="res://GeneralNodes/HitBox/hit_box.tscn" id="13_p5o4e"]
+[ext_resource type="Script" uid="uid://cm0l77fhtaovp" path="res://Player/Scripts/push_area.gd" id="14_lfmf2"]
 [ext_resource type="AudioStream" uid="uid://ckhsxfrow2l43" path="res://Player/Audio/hit_player.wav" id="15_lfmf2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt17y"]
@@ -533,6 +534,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkpta"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfmf2"]
+size = Vector2(20, 15)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gu6f8"]
 height = 22.0
 
@@ -678,15 +682,26 @@ max_polyphony = 4
 [node name="Interactions" type="Node2D" parent="."]
 script = ExtResource("10_apopc")
 
-[node name="Area2D" type="Area2D" parent="Interactions"]
+[node name="ConverseWithArea" type="Area2D" parent="Interactions"]
 collision_layer = 4
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/ConverseWithArea"]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_dkpta")
 debug_color = Color(1.44392e-07, 0.701049, 1.54018e-06, 0.419608)
+
+[node name="PushArea" type="Area2D" parent="Interactions"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("14_lfmf2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_lfmf2")
+debug_color = Color(0.895263, 0.0404096, 1, 0.419608)
 
 [node name="HitBox" parent="." instance=ExtResource("13_p5o4e")]
 collision_layer = 2
