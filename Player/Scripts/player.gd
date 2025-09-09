@@ -29,17 +29,17 @@ func _ready():
 	update_hp(99) # give player full health
 	pass
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	direction = Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
 	).normalized() # make the total magnitude 1 to maintain correct speed
-	pass
-	
+
+
 func _physics_process(_delta):
 	move_and_slide()
-	pass
 
 
 func set_direction() -> bool:
@@ -60,7 +60,6 @@ func set_direction() -> bool:
 
 func update_animation(state : String) -> void:
 	animation_player.play(state + "_" + animation_direction())
-	pass
 
 
 func animation_direction() -> String:
@@ -81,12 +80,12 @@ func _take_damage(hurt_box : HurtBox) -> void:
 	else:
 		player_damaged.emit(hurt_box) # placeholder for gameover
 		update_hp(99)
-	pass
+
 
 func update_hp(delta : int) -> void:
 	hp = clampi(hp + delta, 0, max_hp)
 	PlayerHud.update_hp(hp, max_hp)
-	pass
+
 
 func make_invulnerable(_duration : float = 1.0) -> void:
 	invulnerable = true
@@ -96,4 +95,3 @@ func make_invulnerable(_duration : float = 1.0) -> void:
 	
 	invulnerable = false
 	hit_box.monitoring = true
-	pass
